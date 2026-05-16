@@ -1,0 +1,24 @@
+{
+  "name": "nodejs",
+  "version": "1.0.0",
+  "description": "node practice",
+  "homepage": "https://github.com/akashmondkar7/nodeJS#readme",
+  "bugs": {
+    "url": "https://github.com/akashmondkar7/nodeJS/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/akashmondkar7/nodeJS.git"
+  },
+  "license": "ISC",
+  "author": "Akash",
+  "type": "commonjs",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "colors": "^1.4.0"
+  }
+}
