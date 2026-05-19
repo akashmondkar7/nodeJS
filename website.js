@@ -3,24 +3,30 @@ const fs = require("fs");
 
 const server = http.createServer((req, resp) => {
 
+    let files = "/web";
+
+    if (req.url != '/') {
+        files = req.url;
+    }
+
     // Reusable Header
     let collectHeaderData = fs.readFileSync(
         "html/header.html",
         "utf-8"
     );
 
-    // Home Route
-    if (req.url == '/') {
+    // HTML Pages
+    if (req.url != '/style.css') {
 
-        fs.readFile("html/web.html", "utf-8", (error, data) => {
+        fs.readFile(`html${files}.html`, "utf-8", (error, data) => {
 
             if (error) {
 
-                resp.writeHead(500, {
+                resp.writeHead(404, {
                     "Content-type": "text/plain"
                 });
 
-                resp.end("Internal Server Error");
+                resp.end("Page Not Found");
 
                 return;
             }
