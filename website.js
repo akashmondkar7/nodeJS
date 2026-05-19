@@ -4,8 +4,19 @@ const fs = require("fs");
 const server = http.createServer((req, resp) => {
     
 //===================================
+let collectHeaderData;
+fs.readFile("html/header.html", "utf-8", (error, headerData) => {
+      if (error) {
+        resp.writeHead(500, { "Content-type": "text/plain" });
+        resp.end("internal server error");
+        return false;
+      }
 
-
+      collectHeaderData=headerData
+        // resp.write(headerData);
+        // resp.end();
+      
+    });
 
 
 
@@ -30,7 +41,7 @@ const server = http.createServer((req, resp) => {
         resp.end("internal server error");
         return false;
       }
-        resp.write(data);
+        resp.write(collectHeaderData+""+data);
         resp.end();
       
     });
